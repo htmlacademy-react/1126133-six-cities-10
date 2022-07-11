@@ -4,13 +4,13 @@ type MainScreenProps = {
   cardsCount: number;
 }
 
-function getArray(quantity: number): string[] {
-  const newArray = [];
+function getListCards(quantity: number): string[] {
+  const listCards = [];
   for (let i = 0; i < quantity; i++) {
-    newArray.push(Math.random().toString());
+    listCards.push(Math.random().toString());
   }
 
-  return newArray;
+  return listCards;
 }
 
 function MainScreen({ cardsCount }: MainScreenProps): JSX.Element {
@@ -105,7 +105,7 @@ function MainScreen({ cardsCount }: MainScreenProps): JSX.Element {
               </form>
               <div className="cities__places-list places__list tabs__content">
                 {
-                  getArray(cardsCount).map((card) => <OfferCard key={card} />)
+                  getListCards(cardsCount).map((card) => <OfferCard key={card} />)
                 }
               </div>
             </section>
