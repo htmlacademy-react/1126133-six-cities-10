@@ -6,8 +6,12 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
+const InputParameter = {
+  CARDS_COUNT: 5,
+};
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App cardsCount={InputParameter.CARDS_COUNT} />
   </React.StrictMode>,
 );
