@@ -1,10 +1,19 @@
 import OfferCard from '../../components/offer-card/offer-card';
 
 type MainScreenProps = {
-  offerCards: string[];
+  cardsCount: number;
 }
 
-function MainScreen({ offerCards }: MainScreenProps): JSX.Element {
+function getArray(quantity: number): string[] {
+  const newArray = [];
+  for (let i = 0; i < quantity; i++) {
+    newArray.push(Math.random().toString());
+  }
+
+  return newArray;
+}
+
+function MainScreen({ cardsCount }: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -96,7 +105,7 @@ function MainScreen({ offerCards }: MainScreenProps): JSX.Element {
               </form>
               <div className="cities__places-list places__list tabs__content">
                 {
-                  offerCards.map((card) => <OfferCard key={card} />)
+                  getArray(cardsCount).map((card) => <OfferCard key={card} />)
                 }
               </div>
             </section>

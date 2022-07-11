@@ -6,10 +6,12 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
-const offerCards = ['1', '2', '3', '4', '5'];
+const InputParameter = {
+  CARDS_COUNT: 5,
+};
 
 root.render(
   <React.StrictMode>
-    <App offerCards={offerCards} />
+    <App cardsCount={InputParameter.CARDS_COUNT} />
   </React.StrictMode>,
 );
