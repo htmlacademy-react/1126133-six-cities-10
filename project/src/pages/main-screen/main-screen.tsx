@@ -1,4 +1,5 @@
 import OfferCard from '../../components/offer-card/offer-card';
+import Logo from '../../components/logo/logo';
 
 type MainScreenProps = {
   cardsCount: number;
@@ -20,9 +21,7 @@ function MainScreen({ cardsCount }: MainScreenProps): JSX.Element {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link header__logo-link--active" href="/">
-                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
-              </a>
+              <Logo />
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
@@ -87,7 +86,13 @@ function MainScreen({ cardsCount }: MainScreenProps): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">312 places to stay in Amsterdam</b>
+
+              <b
+                className="places__found"
+              >
+                {cardsCount} places to stay in Amsterdam
+              </b>
+
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
