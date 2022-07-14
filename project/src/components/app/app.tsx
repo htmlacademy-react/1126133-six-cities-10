@@ -4,6 +4,7 @@ import MainScreen from '../../pages/main-screen/main-screen';
 import PropertyScreen from '../../pages/property-screen/property-screen';
 import FavoritesScreen from '../../pages/favorites-screen/favorites-screen';
 import AuthScreen from '../../pages/auth-screen/auth-screen';
+import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 
 
 type AppScreenProps = {
@@ -29,6 +30,10 @@ function App({ cardsCount }: AppScreenProps): JSX.Element {
         <Route
           path={AppRoute.Auth}
           element={<AuthScreen />}
+        />
+        <Route
+          path='*'
+          element={<NotFoundScreen />}
         />
       </Routes>
     </BrowserRouter>
