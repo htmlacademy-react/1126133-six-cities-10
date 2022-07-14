@@ -32,7 +32,7 @@ function App({ cardsCount }: AppScreenProps): JSX.Element {
           element={<AuthScreen />}
         />
         <Route
-          path='*'
+          path={AppRoute.NotFound}
           element={<NotFoundScreen />}
         />
       </Routes>
