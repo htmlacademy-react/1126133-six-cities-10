@@ -11,6 +11,7 @@ export const reviews = [
     comment: 'Home is amazing. Its like staying in a museum.The rooms, furnishings and artworks are incredible.The views of My Vesuvius',
     date: '2022-05-25T12:25:36.939Z'
   },
+
   {
     id: 2,
     user: {
