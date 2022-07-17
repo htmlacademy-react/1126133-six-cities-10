@@ -1,6 +1,6 @@
 import { Offer } from '../../types/offers';
 import { BOOKMARK_BUTTON_ACTIVE } from '../../const';
-import { getCountStars } from '../../utils/utils';
+import { getCountStars, capitalizeFirstLetter } from '../../utils/utils';
 
 type OfferCardProps = {
   offer: Offer;
@@ -8,6 +8,7 @@ type OfferCardProps = {
 
 function OfferCard({ offer }: OfferCardProps): JSX.Element {
   const countStars = getCountStars(offer.rating);
+  const offerType = capitalizeFirstLetter(offer.type);
 
   return (
     <article className="cities__card place-card">
@@ -45,14 +46,16 @@ function OfferCard({ offer }: OfferCardProps): JSX.Element {
 
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: countStars }}></span>
+
+            <span style={{ width: countStars }} />
+
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
           <a href="/">{offer.title}</a>
         </h2>
-        <p className="place-card__type">{offer.type}</p>
+        <p className="place-card__type">{offerType}</p>
       </div>
     </article>
   );
