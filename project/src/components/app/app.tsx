@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
+import { offers } from '../../mocks/offers';
+import { Offers } from '../../types/offers';
 import MainScreen from '../../pages/main-screen/main-screen';
 import PropertyScreen from '../../pages/property-screen/property-screen';
 import FavoritesScreen from '../../pages/favorites-screen/favorites-screen';
@@ -9,9 +11,10 @@ import PrivateRoute from '../../components/private-route/private-route';
 
 type AppScreenProps = {
   cardsCount: number;
+  offers: Offers;
 }
 
-function App({ cardsCount }: AppScreenProps): JSX.Element {
+function App({ cardsCount, offers }: AppScreenProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
