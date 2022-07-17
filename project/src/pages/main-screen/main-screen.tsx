@@ -1,20 +1,14 @@
-import OfferCard from '../../components/offer-card/offer-card';
+import { Offers } from '../../types/offers';
 import Logo from '../../components/logo/logo';
+import OffersList from '../../components/offers-list/offers-list';
 
 type MainScreenProps = {
-  cardsCount: number;
+  offers: Offers;
 }
 
-function getListCards(quantity: number): string[] {
-  const listCards = [];
-  for (let i = 0; i < quantity; i++) {
-    listCards.push(Math.random().toString());
-  }
+function MainScreen({ offers }: MainScreenProps): JSX.Element {
+  const offersCount = offers.length;
 
-  return listCards;
-}
-
-function MainScreen({ cardsCount }: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -87,10 +81,8 @@ function MainScreen({ cardsCount }: MainScreenProps): JSX.Element {
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
 
-              <b
-                className="places__found"
-              >
-                {cardsCount} places to stay in Amsterdam
+              <b className="places__found">
+                {offersCount} places to stay in Amsterdam
               </b>
 
               <form className="places__sorting" action="#" method="get">
@@ -108,11 +100,9 @@ function MainScreen({ cardsCount }: MainScreenProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {
-                  getListCards(cardsCount).map((card) => <OfferCard key={card} />)
-                }
-              </div>
+
+              <OffersList offers={offers} />
+
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
