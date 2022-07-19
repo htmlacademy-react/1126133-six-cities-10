@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Offers } from '../../types/offers';
 import { PageCardClass } from '../../const';
 import OfferCard from '../offer-card/offer-card';

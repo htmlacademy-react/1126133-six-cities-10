@@ -5,8 +5,8 @@ import { PageCardClass, ImageSize } from '../../const';
 type OfferCardProps = {
   offer: Offer;
   cardClass: PageCardClass;
-  onActive: () => void;
-  onInactive: () => void;
+  onActive?: () => void;
+  onInactive?: () => void;
 };
 
 function OfferCard(props: OfferCardProps): JSX.Element {
@@ -47,7 +47,7 @@ function OfferCard(props: OfferCardProps): JSX.Element {
       >
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;{offer.price}</b>
+            <b className="place-card__price-value">&euro;{offer.price}&nbsp;</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
 
