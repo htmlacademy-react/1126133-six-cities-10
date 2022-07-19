@@ -1,4 +1,5 @@
 import { Offers } from '../../types/offers';
+import { PageCardClass } from '../../const';
 import Logo from '../../components/logo/logo';
 import OffersList from '../../components/offers-list/offers-list';
 
@@ -101,7 +102,12 @@ function MainScreen({ offers }: MainScreenProps): JSX.Element {
                 </ul>
               </form>
 
-              <OffersList offers={offers} />
+              <div className="cities__places-list places__list tabs__content">
+                <OffersList
+                  offers={offers}
+                  cardClass={PageCardClass.Main}
+                />
+              </div>
 
             </section>
             <div className="cities__right-section">

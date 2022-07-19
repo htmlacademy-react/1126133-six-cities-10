@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Offers } from '../../types/offers';
+import { PageCardClass } from '../../const';
 import OfferCard from '../offer-card/offer-card';
 
 type OffersListProps = {
   offers: Offers;
+  cardClass: PageCardClass;
 };
 
-function OffersList({ offers }: OffersListProps): JSX.Element {
+function OffersList({ offers, cardClass }: OffersListProps): JSX.Element {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
+  // Заглушка для переменной activeCard
   if (activeCard === undefined) {
     return <div />;
   }
 
   return (
-    <div className="cities__places-list places__list tabs__content">
+    <Fragment>
       {offers.map((offer) => (
         <OfferCard
           key={offer.id}
           offer={offer}
+          cardClass={cardClass}
           onActive={() => setActiveCard(offer.id)}
           onInactive={() => setActiveCard(null)}
         />)
       )}
-    </div>
+    </Fragment>
   );
 }
 
