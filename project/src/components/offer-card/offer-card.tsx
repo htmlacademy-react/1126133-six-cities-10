@@ -1,17 +1,22 @@
 import { Offer } from '../../types/offers';
-import { BOOKMARK_BUTTON_ACTIVE } from '../../const';
 import { getCountStars, capitalizeFirstLetter } from '../../utils/utils';
 
 type OfferCardProps = {
   offer: Offer;
-}
+  onActive: () => void;
+  onInactive: () => void;
+};
 
-function OfferCard({ offer }: OfferCardProps): JSX.Element {
+function OfferCard({ offer, onActive, onInactive }: OfferCardProps): JSX.Element {
   const countStars = getCountStars(offer.rating);
   const offerType = capitalizeFirstLetter(offer.type);
 
   return (
-    <article className="cities__card place-card">
+    <article
+      onMouseOver={onActive}
+      onMouseOut={onInactive}
+      className="cities__card place-card"
+    >
 
       <div
         className="place-card__mark"
@@ -34,7 +39,7 @@ function OfferCard({ offer }: OfferCardProps): JSX.Element {
           </div>
 
           <button
-            className={`place-card__bookmark-button button ${offer.isFavorite ? BOOKMARK_BUTTON_ACTIVE : ''}`}
+            className={`place-card__bookmark-button button ${offer.isFavorite ? 'place-card__bookmark-button--active' : ''}`}
             type="button"
           >
             <svg className="place-card__bookmark-icon" width="18" height="19">

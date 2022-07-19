@@ -1,5 +1,3 @@
-export const BOOKMARK_BUTTON_ACTIVE = 'place-card__bookmark-button--active';
-
 export enum AppRoute {
   Main = '/',
   Login = '/login',
