@@ -14,3 +14,8 @@ export type Review = {
 };
 
 export type Reviews = Review[];
+
+export type CommentForm = {
+  rating: number | null;
+  comment: string;
+}

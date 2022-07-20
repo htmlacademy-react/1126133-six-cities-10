@@ -52,3 +52,11 @@ export const ImageSize = {
 
 export const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
   'August', 'September', 'October', 'November', 'December'] as const;
+
+export const inputRatingOption = [
+  { rating: 5, title: 'perfect' },
+  { rating: 4, title: 'good' },
+  { rating: 3, title: 'not bad' },
+  { rating: 2, title: 'badly' },
+  { rating: 1, title: 'terribly' },
+] as const;
