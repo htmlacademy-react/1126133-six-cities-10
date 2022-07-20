@@ -1,3 +1,8 @@
+export enum ImagePropertyCount {
+  Start = 0,
+  End = 6,
+}
+
 export enum AppRoute {
   Main = '/',
   Login = '/login',
@@ -17,6 +22,22 @@ export enum PageCardClass {
   Property = 'near-places',
   Favorite = 'favorites',
 }
+
+export enum ButtonClass {
+  Property = 'property',
+  OfferCard = 'place-card',
+}
+
+export const ButtonSize = {
+  Big: {
+    height: 33,
+    width: 31,
+  },
+  Small: {
+    height: 19,
+    width: 18,
+  }
+} as const;
 
 export const ImageSize = {
   Big: {
