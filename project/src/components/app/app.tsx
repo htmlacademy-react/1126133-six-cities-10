@@ -10,9 +10,11 @@ import PrivateRoute from '../../components/private-route/private-route';
 
 type AppScreenProps = {
   offers: Offers;
+  favoriteOffers: Offers;
+  nearPlacesOffers: Offers;
 }
 
-function App({ offers }: AppScreenProps): JSX.Element {
+function App({ offers, favoriteOffers, nearPlacesOffers }: AppScreenProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
@@ -22,7 +24,7 @@ function App({ offers }: AppScreenProps): JSX.Element {
         />
         <Route
           path={`${AppRoute.Property}/:id`}
-          element={<PropertyScreen />}
+          element={<PropertyScreen offers={offers} nearPlacesOffers={nearPlacesOffers} />}
         />
         <Route
           path={AppRoute.Favorite}
@@ -30,7 +32,7 @@ function App({ offers }: AppScreenProps): JSX.Element {
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.Auth}
             >
-              <FavoritesScreen offers={offers} />
+              <FavoritesScreen offers={favoriteOffers} />
             </PrivateRoute>
           }
         />
