@@ -21,7 +21,7 @@ function App({ offers }: AppScreenProps): JSX.Element {
           element={<MainScreen offers={offers} />}
         />
         <Route
-          path={AppRoute.Property}
+          path={`${AppRoute.Property}/:id`}
           element={<PropertyScreen />}
         />
         <Route

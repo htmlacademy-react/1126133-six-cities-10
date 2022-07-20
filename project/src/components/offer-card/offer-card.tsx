@@ -1,6 +1,7 @@
 import { Offer } from '../../types/offers';
 import { getCountStars, capitalizeFirstLetter } from '../../utils/utils';
-import { PageCardClass, ImageSize } from '../../const';
+import { PageCardClass, ImageSize, AppRoute } from '../../const';
+import { Link } from 'react-router-dom';
 
 type OfferCardProps = {
   offer: Offer;
@@ -31,7 +32,7 @@ function OfferCard(props: OfferCardProps): JSX.Element {
       </div>
 
       <div className={`${cardClass}__image-wrapper place-card__image-wrapper`}>
-        <a href="/">
+        <a style={{ pointerEvents: 'none' }} href="/">
           <img
             className="place-card__image"
             src={offer.previewImage}
@@ -71,7 +72,13 @@ function OfferCard(props: OfferCardProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="/">{offer.title}</a>
+
+          <Link
+            to={`${AppRoute.Property}/${offer.id}`}
+          >
+            {offer.title}
+          </Link>
+
         </h2>
         <p className="place-card__type">{offerType}</p>
       </div>
