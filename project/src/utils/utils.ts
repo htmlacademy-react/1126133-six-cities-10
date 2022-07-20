@@ -1,4 +1,5 @@
 import { Offers, Offer } from '../types/offers';
+import { month } from '../const';
 
 const MULTIPLIER_RATING = 20;
 const FIRST_LETTER = 0;
@@ -30,4 +31,12 @@ export function getCitiesOffers(offers: Offers): [string, Offer[]][] {
   });
 
   return Array.from(cityOffersMap);
+}
+
+export function getFormatDate(date: string): string {
+  const formDate = new Date(date);
+  const year = formDate.getFullYear();
+  const numMonth = formDate.getMonth();
+
+  return `${month[numMonth]} ${year}`;
 }

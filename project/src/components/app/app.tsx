@@ -7,14 +7,18 @@ import FavoritesScreen from '../../pages/favorites-screen/favorites-screen';
 import AuthScreen from '../../pages/auth-screen/auth-screen';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../../components/private-route/private-route';
+import { Reviews } from '../../types/reviews';
 
 type AppScreenProps = {
   offers: Offers;
   favoriteOffers: Offers;
   nearPlacesOffers: Offers;
+  reviews: Reviews;
 }
 
-function App({ offers, favoriteOffers, nearPlacesOffers }: AppScreenProps): JSX.Element {
+function App(props: AppScreenProps): JSX.Element {
+  const { offers, favoriteOffers, nearPlacesOffers, reviews } = props;
+
   return (
     <BrowserRouter>
       <Routes>
@@ -24,7 +28,13 @@ function App({ offers, favoriteOffers, nearPlacesOffers }: AppScreenProps): JSX.
         />
         <Route
           path={`${AppRoute.Property}/:id`}
-          element={<PropertyScreen offers={offers} nearPlacesOffers={nearPlacesOffers} />}
+          element={
+            <PropertyScreen
+              offers={offers}
+              nearPlacesOffers={nearPlacesOffers}
+              reviews={reviews}
+            />
+          }
         />
         <Route
           path={AppRoute.Favorite}

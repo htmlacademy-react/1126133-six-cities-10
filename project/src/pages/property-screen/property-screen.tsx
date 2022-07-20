@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Offers } from '../../types/offers';
+import { Reviews } from '../../types/reviews';
 import { ImagePropertyCount, ButtonClass, PageCardClass } from '../../const';
 import { getCountStars, capitalizeFirstLetter } from '../../utils/utils';
 import Logo from '../../components/logo/logo';
@@ -8,14 +9,16 @@ import PropertyImage from '../../components/property-image/property-image';
 import BookmarkButton from '../../components/bookmark-button/bookmark-button';
 import PropertyGoods from '../../components/property-goods/property-goods';
 import OffersList from '../../components/offers-list/offers-list';
+import UserReview from '../../components/user-review/user-review';
 
 
 type PropertyScreenProps = {
   offers: Offers;
   nearPlacesOffers: Offers;
+  reviews: Reviews
 }
 
-function PropertyScreen({ offers, nearPlacesOffers }: PropertyScreenProps): JSX.Element {
+function PropertyScreen({ offers, nearPlacesOffers, reviews }: PropertyScreenProps): JSX.Element {
   const { id } = useParams();
   const numId = Number(id);
   const offer = offers.find((item) => item.id === numId);
@@ -112,9 +115,7 @@ function PropertyScreen({ offers, nearPlacesOffers }: PropertyScreenProps): JSX.
                 <span className="property__price-text">&nbsp;night</span>
               </div>
 
-              <PropertyGoods
-                goods={offer.goods}
-              />
+              <PropertyGoods goods={offer.goods} />
 
               <div className="property__host">
                 <h2 className="property__host-title">Meet the host</h2>
@@ -141,33 +142,12 @@ function PropertyScreen({ offers, nearPlacesOffers }: PropertyScreenProps): JSX.
 
               <section className="property__reviews reviews">
                 <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
-
                 <ul className="reviews__list">
-                  <li className="reviews__item">
-                    <div className="reviews__user user">
-                      <div className="reviews__avatar-wrapper user__avatar-wrapper">
-                        <img className="reviews__avatar user__avatar" src="img/avatar-max.jpg" width="54" height="54"
-                          alt="Reviews avatar"
-                        />
-                      </div>
-                      <span className="reviews__user-name">
-                        Max
-                      </span>
-                    </div>
-                    <div className="reviews__info">
-                      <div className="reviews__rating rating">
-                        <div className="reviews__stars rating__stars">
-                          <span style={{ width: '80%' }}></span>
-                          <span className="visually-hidden">Rating</span>
-                        </div>
-                      </div>
-                      <p className="reviews__text">
-                        A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The
-                        building is green and from 18th century.
-                      </p>
-                      <time className="reviews__time" dateTime="2019-04-24">April 2019</time>
-                    </div>
-                  </li>
+
+                  <UserReview
+                    reviews={reviews}
+                  />
+
                 </ul>
 
                 <form className="reviews__form form" action="#" method="post">

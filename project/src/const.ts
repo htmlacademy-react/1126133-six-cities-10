@@ -49,3 +49,6 @@ export const ImageSize = {
     width: 150,
   }
 } as const;
+
+export const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+  'August', 'September', 'October', 'November', 'December'] as const;
