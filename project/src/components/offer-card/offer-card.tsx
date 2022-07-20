@@ -20,8 +20,8 @@ function OfferCard(props: OfferCardProps): JSX.Element {
 
   return (
     <article
-      onMouseOver={onActive}
-      onMouseOut={onInactive}
+      onMouseEnter={onActive}
+      onMouseLeave={onInactive}
       className={`${cardClass}__card place-card`}
     >
 
