@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
+import { offers, favoriteOffers, nearPlacesOffers } from './mocks/offers';
+import { reviews } from './mocks/reviews';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
-const InputParameter = {
-  CARDS_COUNT: 5,
-};
 
 root.render(
   <React.StrictMode>
-    <App cardsCount={InputParameter.CARDS_COUNT} />
+    <App
+      offers={offers}
+      favoriteOffers={favoriteOffers}
+      nearPlacesOffers={nearPlacesOffers}
+      reviews={reviews}
+    />
   </React.StrictMode>,
 );
