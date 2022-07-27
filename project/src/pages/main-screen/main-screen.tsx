@@ -2,6 +2,8 @@ import { Offers } from '../../types/offers';
 import { PageCardClass } from '../../const';
 import Logo from '../../components/logo/logo';
 import OffersList from '../../components/offers-list/offers-list';
+import Map from '../../components/map/map';
+import { City } from '../../mocks/offers';
 
 type MainScreenProps = {
   offers: Offers;
@@ -108,11 +110,15 @@ function MainScreen({ offers }: MainScreenProps): JSX.Element {
                   cardClass={PageCardClass.Main}
                 />
               </div>
-
             </section>
+
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map
+                city={City}
+                offers={offers}
+              />
             </div>
+
           </div>
         </div>
       </main>
