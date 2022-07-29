@@ -1,12 +1,3 @@
-export const City = {
-  name: 'Amsterdam',
-  location: {
-    latitude: 52.37454,
-    longitude: 4.897976,
-    zoom: 13
-  }
-};
-
 export const offers = [
   {
     id: 1,
@@ -57,8 +48,8 @@ export const offers = [
     },
     description: 'Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.',
     location: {
-      latitude: 52.3909553943508,
-      longitude: 4.929309666406198,
+      latitude: 51.210402,
+      longitude: 6.798314,
       zoom: 16
     }
   },
@@ -110,8 +101,8 @@ export const offers = [
     },
     description: 'Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.',
     location: {
-      latitude: 52.3809553943508,
-      longitude: 4.939309666406198,
+      latitude: 48.843610000000005,
+      longitude: 2.338499,
       zoom: 16
     }
   },
@@ -121,8 +112,8 @@ export const offers = [
     city: {
       name: 'Hamburg',
       location: {
-        latitude: 53.551086,
-        longitude: 9.993682,
+        latitude: 53.55034,
+        longitude: 10.000654,
         zoom: 13
       }
     },
@@ -169,8 +160,8 @@ export const offers = [
     },
     description: 'Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.',
     location: {
-      latitude: 52.369553943508,
-      longitude: 4.85309666406198,
+      latitude: 53.534341000000005,
+      longitude: 9.998654,
       zoom: 16
     }
   },
@@ -229,8 +220,8 @@ export const offers = [
     },
     description: 'Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.',
     location: {
-      latitude: 52.3909553943508,
-      longitude: 4.85309666406198,
+      latitude: 50.934361,
+      longitude: 6.943974,
       zoom: 16
     }
   },
@@ -238,10 +229,10 @@ export const offers = [
   {
     id: 5,
     city: {
-      name: 'Cologne',
+      name: 'Amsterdam',
       location: {
-        latitude: 50.938361,
-        longitude: 6.959974,
+        latitude: 52.37454,
+        longitude: 4.897976,
         zoom: 13
       }
     },
@@ -289,8 +280,8 @@ export const offers = [
     },
     description: 'Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.',
     location: {
-      latitude: 52.389346,
-      longitude: 4.905060,
+      latitude: 52.388540000000006,
+      longitude: 4.899976,
       zoom: 16
     }
   },
@@ -298,10 +289,10 @@ export const offers = [
   {
     id: 6,
     city: {
-      name: 'Amsterdam',
+      name: 'Hamburg',
       location: {
-        latitude: 52.37454,
-        longitude: 4.897976,
+        latitude: 53.550341,
+        longitude: 10.000654,
         zoom: 13
       }
     },
@@ -349,8 +340,68 @@ export const offers = [
     },
     description: 'Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.',
     location: {
-      latitude: 52.363479,
-      longitude: 4.892781,
+      latitude: 53.538341,
+      longitude: 9.976654000000002,
+      zoom: 16
+    }
+  },
+
+  {
+    id: 7,
+    city: {
+      name: 'Brussels',
+      location: {
+        latitude: 50.846557,
+        longitude: 4.351697,
+        zoom: 13
+      }
+    },
+    previewImage: 'https://10.react.pages.academy/static/hotel/13.jpg',
+    images: [
+      'https://10.react.pages.academy/static/hotel/17.jpg',
+      'https://10.react.pages.academy/static/hotel/9.jpg',
+      'https://10.react.pages.academy/static/hotel/10.jpg',
+      'https://10.react.pages.academy/static/hotel/14.jpg',
+      'https://10.react.pages.academy/static/hotel/6.jpg',
+      'https://10.react.pages.academy/static/hotel/5.jpg',
+      'https://10.react.pages.academy/static/hotel/13.jpg',
+      'https://10.react.pages.academy/static/hotel/3.jpg',
+      'https://10.react.pages.academy/static/hotel/15.jpg',
+      'https://10.react.pages.academy/static/hotel/16.jpg',
+      'https://10.react.pages.academy/static/hotel/19.jpg',
+      'https://10.react.pages.academy/static/hotel/1.jpg',
+      'https://10.react.pages.academy/static/hotel/11.jpg',
+      'https://10.react.pages.academy/static/hotel/7.jpg'
+    ],
+    title: 'Loft Studio in the Central Area',
+    isFavorite: true,
+    isPremium: true,
+    rating: 4.7,
+    type: 'hotel',
+    bedrooms: 3,
+    maxAdults: 8,
+    price: 1200,
+    goods: [
+      'Dishwasher',
+      'Air conditioning',
+      'Breakfast',
+      'Baby seat',
+      'Fridge',
+      'Washer',
+      'Towels',
+      'Coffee machine',
+      'Laptop friendly workspace'
+    ],
+    host: {
+      id: 25,
+      name: 'Angelina',
+      isPro: true,
+      avatarUrl: 'img/avatar-angelina.jpg'
+    },
+    description: 'Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.',
+    location: {
+      latitude: 50.862556999999995,
+      longitude: 4.375697,
       zoom: 16
     }
   },
