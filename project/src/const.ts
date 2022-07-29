@@ -1,3 +1,5 @@
+import { Icon } from 'leaflet';
+
 export enum ImagePropertyCount {
   Start = 0,
   End = 6,
@@ -106,3 +108,9 @@ export const city = [
   City.Hamburg,
   City.Dusseldorf
 ] as const;
+
+export const defaultCustomIcon = new Icon({
+  iconUrl: UrlMarker.Default,
+  iconSize: [IconParameter.Size.x, IconParameter.Size.y],
+  iconAnchor: [IconParameter.Anchor.x, IconParameter.Anchor.y],
+});

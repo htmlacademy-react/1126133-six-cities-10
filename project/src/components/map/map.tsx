@@ -1,28 +1,46 @@
-import { Icon, Marker } from 'leaflet';
+import { Marker } from 'leaflet';
 import { useEffect, useRef } from 'react';
-import { IconParameter, UrlMarker } from '../../const';
-import { City, Offers } from '../../types/offers';
+import { City, defaultCustomIcon } from '../../const';
+import { Offers } from '../../types/offers';
 import 'leaflet/dist/leaflet.css';
 import useMap from '../../hooks/useMap';
+import { getActiveCityLocation } from '../../utils/utils';
 
 type MapProps = {
-  city: City;
+  activeCity: City;
   offers: Offers;
 };
 
-const defaultCustomIcon = new Icon({
-  iconUrl: UrlMarker.Default,
-  iconSize: [IconParameter.Size.x, IconParameter.Size.y],
-  iconAnchor: [IconParameter.Anchor.x, IconParameter.Anchor.y],
-});
-
 function Map(props: MapProps): JSX.Element {
-  const { city, offers } = props;
+  const { offers, activeCity } = props;
+
+  const activeCityLocation = getActiveCityLocation(activeCity, offers);
 
   const mapRef = useRef(null);
-  const map = useMap(mapRef, city);
+  const map = useMap(mapRef, activeCityLocation);
+
+  const prevActiveCityRef = useRef<City>(activeCity);
+  const prevMarkersRef = useRef<Marker[]>([]);
 
   useEffect(() => {
+
+    if (prevActiveCityRef.current !== activeCity && map) {
+
+      prevActiveCityRef.current = activeCity;
+
+      prevMarkersRef.current.forEach((marker) => marker.remove());
+
+      prevMarkersRef.current = [];
+
+      map.setView(
+        {
+          lat: activeCityLocation.latitude,
+          lng: activeCityLocation.longitude
+        },
+        activeCityLocation.zoom
+      );
+    }
+
     if (map) {
       offers.forEach((offer) => {
         const marker = new Marker({
@@ -35,9 +53,11 @@ function Map(props: MapProps): JSX.Element {
             defaultCustomIcon
           )
           .addTo(map);
+
+        prevMarkersRef.current.push(marker);
       });
     }
-  }, [map, offers]);
+  }, [map, offers, activeCity, activeCityLocation]);
 
   return (
     <section className="cities__map map"
