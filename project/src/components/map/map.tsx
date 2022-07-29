@@ -1,63 +1,38 @@
 import { Marker } from 'leaflet';
-import { useEffect, useRef } from 'react';
-import { City, defaultCustomIcon } from '../../const';
+import { useRef } from 'react';
+import { City } from '../../const';
 import { Offers } from '../../types/offers';
 import 'leaflet/dist/leaflet.css';
 import useMap from '../../hooks/useMap';
 import { getActiveCityLocation } from '../../utils/utils';
+import useChangeLocation from '../../hooks/useChangeLocation';
+import useMarker from '../../hooks/useMarker';
 
 type MapProps = {
   activeCity: City;
-  offers: Offers;
+  activeCityOffers: Offers;
 };
 
 function Map(props: MapProps): JSX.Element {
-  const { offers, activeCity } = props;
+  const { activeCityOffers, activeCity } = props;
 
-  const activeCityLocation = getActiveCityLocation(activeCity, offers);
+  const activeCityLocation = getActiveCityLocation(activeCity, activeCityOffers);
 
   const mapRef = useRef(null);
-  const map = useMap(mapRef, activeCityLocation);
-
   const prevActiveCityRef = useRef<City>(activeCity);
   const prevMarkersRef = useRef<Marker[]>([]);
 
-  useEffect(() => {
+  const map = useMap(mapRef, activeCityLocation);
 
-    if (prevActiveCityRef.current !== activeCity && map) {
+  useChangeLocation(
+    prevActiveCityRef,
+    prevMarkersRef,
+    activeCity,
+    activeCityLocation,
+    map
+  );
 
-      prevActiveCityRef.current = activeCity;
-
-      prevMarkersRef.current.forEach((marker) => marker.remove());
-
-      prevMarkersRef.current = [];
-
-      map.setView(
-        {
-          lat: activeCityLocation.latitude,
-          lng: activeCityLocation.longitude
-        },
-        activeCityLocation.zoom
-      );
-    }
-
-    if (map) {
-      offers.forEach((offer) => {
-        const marker = new Marker({
-          lat: offer.location.latitude,
-          lng: offer.location.longitude
-        });
-
-        marker
-          .setIcon(
-            defaultCustomIcon
-          )
-          .addTo(map);
-
-        prevMarkersRef.current.push(marker);
-      });
-    }
-  }, [map, offers, activeCity, activeCityLocation]);
+  useMarker(prevMarkersRef, activeCityOffers, map);
 
   return (
     <section className="cities__map map"
