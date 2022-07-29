@@ -50,8 +50,20 @@ export const ImageSize = {
   }
 } as const;
 
-export const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
-  'August', 'September', 'October', 'November', 'December'] as const;
+export const month = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+] as const;
 
 export const inputRatingOption = [
   { rating: 5, title: 'perfect' },
@@ -76,3 +88,21 @@ export const IconParameter = {
     y: 39
   }
 } as const;
+
+export enum City {
+  Paris = 'Paris',
+  Cologne = 'Cologne',
+  Brussels = 'Brussels',
+  Amsterdam = 'Amsterdam',
+  Hamburg = 'Hamburg',
+  Dusseldorf = 'Dusseldorf'
+}
+
+export const city = [
+  City.Paris,
+  City.Cologne,
+  City.Brussels,
+  City.Amsterdam,
+  City.Hamburg,
+  City.Dusseldorf
+] as const;
