@@ -4,11 +4,11 @@ import { Offers } from './offers';
 
 // Правильно ли описал тип таким образом ?
 export type InitialState = {
-  city: City;
+  activeCity: City;
   offers: Offers;
 }
 
-// Как понимаю, если я уже описал тип InitState, то необходимости в строке ниже уже нет ?
+// Если я уже описал тип InitialState, то уже нет смысла использовать ReturnType ?
 export type State = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
