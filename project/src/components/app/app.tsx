@@ -8,8 +8,6 @@ import AuthScreen from '../../pages/auth-screen/auth-screen';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../../components/private-route/private-route';
 import { Reviews } from '../../types/reviews';
-import { useAppDispatch } from '../../hooks';
-import { setOffers } from '../../store/action';
 import { offers } from '../../mocks/offers';
 
 type AppScreenProps = {
@@ -20,10 +18,6 @@ type AppScreenProps = {
 
 function App(props: AppScreenProps): JSX.Element {
   const { favoriteOffers, nearPlacesOffers, reviews } = props;
-
-  const dispatch = useAppDispatch();
-
-  dispatch(setOffers(offers));
 
   return (
     <BrowserRouter>
